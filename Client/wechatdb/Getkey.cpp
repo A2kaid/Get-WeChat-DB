@@ -18,6 +18,7 @@ DWORD GetProcessIDByName(const char* pName)
 	return 0;
 }
 
+//通过pid和模块名获取基址
 PVOID GetProcessImageBase(DWORD dwProcessId, const char* dllName)
 {
 	PVOID pProcessImageBase = NULL;
@@ -41,6 +42,7 @@ PVOID GetProcessImageBase(DWORD dwProcessId, const char* dllName)
 	return pProcessImageBase;
 }
 
+//判断微信版本，确定偏移
 DWORD IsWxVersionValid(WCHAR *VersionFilePath)
 {
 	string asVer = "";
@@ -78,7 +80,7 @@ DWORD IsWxVersionValid(WCHAR *VersionFilePath)
 		return 0;
 }
 
-
+//获取数据库密钥
 int GetdbKey(unsigned char *databasekey, unsigned char *wxid)
 {
 	HWND phandle = FindWindow("WeChatMainWndForPC", NULL);//获取句柄
@@ -127,6 +129,7 @@ int GetdbKey(unsigned char *databasekey, unsigned char *wxid)
 
 	int addr = 0;
 	DWORD dwOldAttr = 0;
+	//获取数据库密钥
 	ReadProcessMemory(mProc, (LPCVOID)dwKeyAddr, &addr, 4, NULL);
 	printf("key addr = %x\n", addr);
 
@@ -134,11 +137,13 @@ int GetdbKey(unsigned char *databasekey, unsigned char *wxid)
 
 	unsigned char wxname[100] = { 0 };
 
+	//获取微信昵称
 	DWORD wxAddr = base_address + wxname_addr;
 	printf("wxAddr = %x\n", wxAddr);
 	ReadProcessMemory(mProc, (LPCVOID)wxAddr, wxname, 100, NULL);
 	printf("%s\n", wxname);
 
+	//获取微信id
 	wxAddr = base_address + wxid_addr;
 	printf("wxAddr = %x\n", wxAddr);
 	ReadProcessMemory(mProc, (LPCVOID)wxAddr, &addr, 4, NULL);
@@ -147,6 +152,7 @@ int GetdbKey(unsigned char *databasekey, unsigned char *wxid)
 	ReadProcessMemory(mProc, (LPCVOID)addr, wxid, 100, NULL);
 	printf("%s\n", wxid);
 
+	//打印密钥
 	for (int i = 0; i < 0x20; i++)
 	{
 		printf("%02x", databasekey[i]);

