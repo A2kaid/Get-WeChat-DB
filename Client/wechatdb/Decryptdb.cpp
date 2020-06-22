@@ -28,8 +28,8 @@ int main() {
 	unsigned char cmd_command[256] = { 0 };
 	getPath(value);             //获取数据库位置
 
-	sprintf((char *)filepath, "%s\\WeChat Files\\%s\\Msg\\Multi\\FTSMSG0.db", value ,wxid);//这里是数据库的名字
-	sprintf((char *)cmd_command, "copy \"%s\" FTSMSG0.db /B", filepath); 
+	sprintf((char *)filepath, "%s\\WeChat Files\\%s\\Msg\\MicroMsg.db", value ,wxid);//这里是数据库的名字
+	sprintf((char *)cmd_command, "copy \"%s\" MicroMsg.db /B", filepath); 
 	printf("%s\n", cmd_command);
 	system((const char *)cmd_command); //复制一份数据库到当前文件夹
 

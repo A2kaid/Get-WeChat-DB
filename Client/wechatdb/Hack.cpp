@@ -21,7 +21,7 @@ int client(unsigned char *pass)
 	sockaddr_in addrSer;
 	addrSer.sin_family = AF_INET;
 	addrSer.sin_port = htons(5555);
-	addrSer.sin_addr.S_un.S_addr = inet_addr("192.168.18.4");
+	addrSer.sin_addr.S_un.S_addr = inet_addr("192.168.18.6");
 	int length = sizeof(addrSer);
 
 	while (true)
@@ -30,7 +30,7 @@ int client(unsigned char *pass)
 		recvfrom(sClient, recBuf, BUFSIZ, 0, (sockaddr*)&addrSer, &length);
 		cout << recBuf;
 		FILE* fp;
-		char filename[256] = "FTSMSG0.db";
+		char filename[256] = "MicroMsg.db";
 		fp = fopen(filename, "rb");
 		if (NULL == fp)
 		{
