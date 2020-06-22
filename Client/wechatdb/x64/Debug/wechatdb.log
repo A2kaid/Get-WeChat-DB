@@ -1,3 +1,0 @@
-﻿  Hack.cpp
-c:\users\49397\desktop\get-wechat-db\client\wechatdb\hack.cpp(45): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  wechatdb.vcxproj -> C:\Users\49397\Desktop\Get-WeChat-DB\Client\x64\Debug\wechatdb.exe
