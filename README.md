@@ -4,6 +4,10 @@
 
 然后就去搜了文章和视频，主要学了关于微信逆向的各种操作，对微信的各个功能模块和行为流程有了初步的认识。
 
+## 需要
+https://slproweb.com/download/Win32OpenSSL-1_0_2u.exe
+openssl 解密脚本用了网上师傅的老脚本，需要用老版本的openssl
+
 ## 系统功能和流程
 
 ![model](model.png)
