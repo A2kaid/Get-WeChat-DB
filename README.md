@@ -11,7 +11,7 @@ openssl 解密脚本用了网上师傅的老脚本，需要用老版本的openss
 
 ## 系统功能和流程
 
-![model](https://github.com/A2kaid/Get-WeChat-DB/edit/master/model.png)
+![model](https://raw.github.com/A2kaid/Get-WeChat-DB/edit/master/model.png)
 
 ## 参考文章和项目
 
