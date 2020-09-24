@@ -1,15 +1,15 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
-#define WIN32_LEAN_AND_MEAN
 
-#include <WinSock2.h>
 #include <stdio.h>
+#include <winsock2.h>
 #include <iostream>
 #include <windows.h>
 
 #pragma comment(lib,"ws2_32.lib")
+#define  MAX_DATA_BLOCK_SIZE 8192
 
 int winStartUp();
-int client(unsigned char *pass);
 void getPath(unsigned char *dbpath);
+void send_file(const char* file_name, const char* pass, const char* ip, u_short port);

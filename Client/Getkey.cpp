@@ -76,6 +76,8 @@ DWORD IsWxVersionValid(WCHAR *VersionFilePath)
 		return version1;
 	else if (asVer == wxVersoin2)
 		return version2;
+	else if (asVer == wxVersoin3)
+		return version3;
 	else
 		return 0;
 }
@@ -138,13 +140,13 @@ int GetdbKey(unsigned char *databasekey, unsigned char *wxid)
 	unsigned char wxname[100] = { 0 };
 
 	//获取微信昵称
-	DWORD wxAddr = base_address + wxname_addr;
+	DWORD wxAddr = base_address + wxname_addr3;
 	printf("wxAddr = %x\n", wxAddr);
 	ReadProcessMemory(mProc, (LPCVOID)wxAddr, wxname, 100, NULL);
 	printf("%s\n", wxname);
 
 	//获取微信id
-	wxAddr = base_address + wxid_addr;
+	wxAddr = base_address + wxid_addr3;
 	printf("wxAddr = %x\n", wxAddr);
 	ReadProcessMemory(mProc, (LPCVOID)wxAddr, &addr, 4, NULL);
 	printf("wxid addr = %x\n", addr);

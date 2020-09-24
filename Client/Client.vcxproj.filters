@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Getkey.cpp">
+    <ClCompile Include="Decryptdb.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Decryptdb.cpp">
+    <ClCompile Include="Getkey.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Hack.cpp">
